@@ -6,7 +6,7 @@ The content is stored in the LocalStorage of your browser. If you want to delete
 ## Known Issues : 
 - When the inputed text is too long, it won't fit on the card
 - If your browser has a global dark theme, the script that generates random colors will often make unreadable colors
-- Date is in a very weird format when data is imported from the local storage
+- ~~Date is in a very weird format when data is imported from the local storage ~~ now corrected, will display day,month,day of the month and year
 - notes IDs are randomly generated, but there is a 1 over 1 million chance to have the same Id twice
 - responsiveness is limited but "works" on standard phone sizes
 

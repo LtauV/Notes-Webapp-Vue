@@ -13,7 +13,7 @@
   // console.log(notes.value.length==0)
   
   function restoreFromLocalStorage(){
-    if ((notes.value.length==0) && (JSON.parse(localStorage.getItem('notes_data')).length > 0)) {
+    if ((notes.value.length==0) && (!JSON.parse(localStorage.getItem('notes_data')))==false) {
       console.log("History succesfully identified")
       notes.value = JSON.parse(localStorage.getItem('notes_data'));
 
@@ -36,7 +36,7 @@
     notes.value.push({
       id: Math.floor(Math.random() * 100000),
       text: newNote.value,
-      date: new Date(),
+      date: new Date().toDateString(),
       backgroundColor: getRandomColor(),
     });
     showModal.value=false;
