@@ -5,6 +5,10 @@
   const newNote = ref("")
   const notes = ref([]) 
 
+  function pushToLocalStorage(){
+    localStorage.setItem('notes_data',notes);
+  }
+
   function getRandomColor() {
     return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
   }
