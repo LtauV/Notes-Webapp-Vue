@@ -6,8 +6,27 @@
   const notes = ref([]) 
 
   function pushToLocalStorage(){
-    localStorage.setItem('notes_data',notes);
+    localStorage.setItem('notes_data',JSON.stringify(notes.value));
   }
+
+  //debug of notes initialisation state
+  // console.log(notes.value.length==0)
+  
+  function restoreFromLocalStorage(){
+    if ((notes.value.length==0) && (JSON.parse(localStorage.getItem('notes_data')).length > 0)) {
+      console.log("History succesfully identified")
+      notes.value = JSON.parse(localStorage.getItem('notes_data'));
+
+      console.log("History succesfully restored")
+    }
+    else {
+      console.log("History was empty or Notes is not empty")
+    }
+    //  console.log(JSON.parse(localStorage.getItem('notes_data')))
+  }
+
+  restoreFromLocalStorage()
+
 
   function getRandomColor() {
     return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
@@ -22,6 +41,8 @@
     });
     showModal.value=false;
     newNote.value="";
+    localStorage.clear();
+    pushToLocalStorage();
   }
 
 </script>
